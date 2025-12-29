@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <label for="search-box">Search a gif:</label>
+  <input type="text" id="search-box">
+  <img src="#">
+  <script>
+  const img = document.querySelector('img');
+  //Remember the https:// in front
+  fetch('https://api.giphy.com/v1/gifs/translate?api_key=BpNNwaH2DUzqkVbCtJ9SWSDpKaxy9HOl&s=cats')
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(response) {
+        img.src = response.data.images.original.url;
+    });
+</script>
+
+</body>
+</html>
